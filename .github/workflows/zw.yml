@@ -13,6 +13,7 @@ jobs:
     - name: 调试Docker凭据
       run: |
         echo "Docker Hub用户名: $DOCKER_USERNAME"
+        echo "令牌长度: ${#DOCKER_USERNAME}"
         echo "令牌长度: ${#DOCKER_TOKEN}"
         echo "令牌前10字符: ${DOCKER_TOKEN:0:10}..."
       env:
