@@ -10,6 +10,15 @@ jobs:
     - name: 读取仓库内容🤔
       uses: actions/checkout@v4
 
+    - name: 调试Docker凭据
+      run: |
+        echo "Docker Hub用户名: $DOCKER_USERNAME"
+        echo "令牌长度: ${#DOCKER_TOKEN}"
+        echo "令牌前10字符: ${DOCKER_TOKEN:0:10}..."
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+        DOCKER_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+
     - name: 登录DockerHub🔐
       uses: docker/login-action@v3
       with:
